@@ -7,4 +7,15 @@
       </h1>
     </section>
   </aside>
+  <p>
+  <% if current_user.id == @user.id %>
+    <% if @user.manager_id %>
+      <%= link_to "My manager", @user.manager %>
+      <br>
+    <%end %>
+    <% if @user.subordinates.any? %>
+      <%= link_to "My employees", users_path(@user) %>
+    <%end %>
+  <% end %>
+  </p>
 </div>

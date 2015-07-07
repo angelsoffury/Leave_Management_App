@@ -1,0 +1,8 @@
+<h2> My Employees </h2>
+Total: <%= @subordinates.count %>
+<hr>
+<ol>
+  <% @subordinates.each do |sub| %>
+    <li><%=link_to sub.name, sub %></li>
+  <%end%>
+</ol>
