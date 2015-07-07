@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150707203237) do
+ActiveRecord::Schema.define(version: 20150707221423) do
+
+  create_table "leaves", force: true do |t|
+    t.date     "start_date"
+    t.date     "end_date"
+    t.text     "reason"
+    t.integer  "user_id"
+    t.integer  "approver_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "status",      default: "Pending"
+  end
+
+  add_index "leaves", ["user_id", "created_at"], name: "index_leaves_on_user_id_and_created_at"
 
   create_table "users", force: true do |t|
     t.string   "name"

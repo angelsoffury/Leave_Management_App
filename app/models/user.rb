@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
  
   belongs_to :manager, class_name: "User"
 
+  has_many :leave, dependent: :destroy
+
    before_save { self.email = email.downcase }
   before_create :create_remember_token
 
