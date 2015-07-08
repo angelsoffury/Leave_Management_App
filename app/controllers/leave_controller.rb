@@ -8,7 +8,7 @@ class LeaveController < ApplicationController
     @leave = current_user.leave.new
   end
 
-def create
+  def create
      @leave = current_user.leave.build(leave_params)
      @leave.approver_id= current_user.manager.id
     if @leave.save
@@ -22,16 +22,23 @@ def create
   def destroy
   end
 
-def approve
-    @leave= Leave.find(params[:id])
-    @leave.status="Approved"
-    if @leave.save
-     redirect_to root_url
-   end
-end
-    private
-def leave_params
-      params.require(:leave).permit(:start_date, :end_date, :reason)
-end
+  def approve
+    set_status("Approved")
+  end
 
+  def reject
+    set_status("Rejected")
+  end
+    private
+  def leave_params
+      params.require(:leave).permit(:start_date, :end_date, :reason)
+  end
+
+  def set_status(status)
+    @leave= Leave.find(params[:id])
+      @leave.status=status
+      if @leave.save
+        redirect_to root_url
+      end
+  end
 end

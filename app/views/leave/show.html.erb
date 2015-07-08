@@ -29,9 +29,12 @@ Status:
 
 <% if current_user.id ==@leave.approver_id %>
 <% if @leave.status== "Pending" %>
- <%= link_to "Approve!", {controller: "leave", action: "approve", id: @leave.id},
-                                class: "btn btn-large btn-primary" %><br>
+ <%= link_to "Approve", {controller: "leave", action: "approve", id: @leave.id},
+                                class: "btn btn-large btn-primary" %> | 
+
+<%= link_to "Reject", {controller: "leave", action: "reject", id: @leave.id},
+                                class: "btn btn-large btn-primary" %>
   <%end %>
 <% end %>
-
+<br>
 <%= link_to 'Back', root_url %>
