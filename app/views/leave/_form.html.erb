@@ -22,7 +22,6 @@
     <%= f.label :reason%><br>
     <%= f.text_area :reason ,value: @leave.reason%>
   </p>
-  <% @leave.approver_id= current_user.manager.id %>
  <div>
     <%= f.submit 'Save'%>
   </div>

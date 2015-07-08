@@ -6,9 +6,7 @@
         <%= render 'shared/user_info' %>
     </aside>
     <section>
-        <% if current_user.leave.any? %>
           <%= render 'shared/my_leave' %>
-        <% end %>
       </section>
         <section>
         <% if current_user.subordinates.any? %>
