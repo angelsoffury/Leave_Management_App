@@ -1,0 +1,29 @@
+<p>
+Applied by:
+<%= User.find(@leave.user_id).name %>
+</p>
+<p>
+Applied to:
+<%= User.find(@leave.approver_id).name %>
+</p>
+<p>
+Start date:
+<%= @leave.start_date %>
+</p>
+
+<p>
+End date:
+<%= @leave.end_date %>
+</p>
+
+<p>
+Reason:
+<%= @leave.reason%>
+</p>
+
+<p>
+Status:
+<b><%= @leave.status%></b>
+</p>
+
+<%= link_to 'Back', root_url %>

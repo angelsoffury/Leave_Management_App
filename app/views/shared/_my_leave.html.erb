@@ -1,0 +1,24 @@
+<div class="span8">
+    <% if @user.manager %>
+     <%= link_to "Apply new Leave!", new_user_leave_path(@user),
+                                class: "btn btn-large btn-primary" %><br>
+    <% end %>
+    <% if @user.leave.any? %>
+      <h3>Leave Applied (<%= @user.leave.count %>)</h3>
+      <ol class="leave">
+      <p>Pending </p>
+        <% @user.leave.each do |leave| %>
+          <% if leave.status=="Pending" %>
+        <li> <%= link_to leave.reason, user_leave_path(@user, leave.id) %> </li>
+          <%end %>
+      <%end %>
+      <br>
+       <p>Approved </p>
+        <% @user.leave.each do |leave| %>
+          <% if leave.status=="Approved" %>
+        <li> <%= link_to leave.reason, user_leave_path(@user, leave.id) %> </li>
+          <%end %>
+      <%end %>
+    </ol>
+    <% end %>
+  </div>
