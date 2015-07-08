@@ -19,18 +19,19 @@ def create
     end
   end
 
-  def edit
-    @leave= Leave.find_by(params[:user_id])
-  end
-
-  def update
-  end
-
   def destroy
   end
 
+def approve
+    @leave= Leave.find(params[:id])
+    @leave.status="Approved"
+    if @leave.save
+     redirect_to root_url
+   end
+end
     private
 def leave_params
       params.require(:leave).permit(:start_date, :end_date, :reason)
 end
+
 end

@@ -11,11 +11,11 @@
   </div>
   <% end %>
  <p>
-   <%= f.label "Start date"%><br>
+   <%= f.label "Start date (yyyy/mm/dd)"%><br>
  <%= f.text_field :start_date, value: @leave.start_date.to_s %>
  </p>
  <p>
-  <%= f.label "End date"%><br> 
+  <%= f.label "End date (yyyy/mm/dd)"%><br> 
  <%= f.text_field :end_date, value: @leave.end_date.to_s %>
  </p>
   <p>

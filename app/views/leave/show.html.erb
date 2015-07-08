@@ -1,3 +1,4 @@
+<h2>Show Leave Details </h2>
 <p>
 Applied by:
 <%= User.find(@leave.user_id).name %>
@@ -25,5 +26,12 @@ Reason:
 Status:
 <b><%= @leave.status%></b>
 </p>
+
+<% if current_user.id ==@leave.approver_id %>
+<% if @leave.status== "Pending" %>
+ <%= link_to "Approve!", {controller: "leave", action: "approve", id: @leave.id},
+                                class: "btn btn-large btn-primary" %><br>
+  <%end %>
+<% end %>
 
 <%= link_to 'Back', root_url %>

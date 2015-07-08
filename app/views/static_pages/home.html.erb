@@ -1,4 +1,5 @@
 <% if signed_in? %>
+  <h2>DASHBOARD </h2>
   <div class="row">
     <aside class="span4">
       <section>
@@ -11,7 +12,7 @@
       </section>
         <section>
         <% if current_user.subordinates.any? %>
-          <%= render 'shared/my_employee_leave' %>
+          <%= render 'shared/my_employees_leave' %>
         <% end %>
         </section>
   </div>
