@@ -6,5 +6,6 @@ class Leave < ActiveRecord::Base
   validates :user_id, presence: true 
   validates :approver_id, presence: true 
   validates :reason, presence: true, length: { maximum: 100 }
+  validates :leave_type, presence: true
 
 end

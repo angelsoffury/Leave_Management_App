@@ -1,5 +1,9 @@
 <h2>Show Leave Details </h2>
 <p>
+Leave Type:
+<%= @leave.leave_type %>
+</p>
+<p>
 Applied by:
 <%= User.find(@leave.user_id).name %>
 </p>
