@@ -10,6 +10,10 @@
     </ul>
   </div>
   <% end %>
+  <p>
+   <%= f.label "Leave type"%><br>
+  <%= f.select :leave_type, ['Paid Leave', 'Casual Leave', 'Earned Leave', 'Other'], prompt: 'Select Type', value: @leave.leave_type%>
+ </p>
  <p>
    <%= f.label "Start date (yyyy/mm/dd)"%><br>
  <%= f.text_field :start_date, value: @leave.start_date.to_s %>
@@ -22,7 +26,7 @@
     <%= f.label :reason%><br>
     <%= f.text_area :reason ,value: @leave.reason%>
   </p>
- <div>
-    <%= f.submit 'Save'%>
+ <div class= "actions">
+    <%= f.submit %>
   </div>
 <% end %>

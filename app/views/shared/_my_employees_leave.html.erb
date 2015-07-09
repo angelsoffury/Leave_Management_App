@@ -6,7 +6,7 @@
       <thead>
     <tr>
       <th>Employee name &nbsp;</th>
-      <th>Leave Reason &nbsp;</th>
+      <th>Leave Type &nbsp;</th>
       <th>Start date &nbsp;</th>
       <th>End date &nbsp;</th>
       <th>Status &nbsp;</th>
@@ -17,7 +17,7 @@
     <% @leave.each do |leave| %>
       <tr> 
         <td><%= link_to User.find(leave.user_id).name , user_path(leave.user_id) %> &nbsp;</td>
-        <td><%= link_to leave.reason, user_leave_path(@user, leave.id) %></td>
+        <td><%= link_to leave.leave_type, user_leave_path(@user, leave.id) %></td>
         <td><%= leave.start_date %> &nbsp;</td>
         <td><%= leave.end_date%> &nbsp;</td>
         <td><%= leave.status %> &nbsp;</td>
