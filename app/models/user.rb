@@ -23,7 +23,10 @@ class User < ActiveRecord::Base
   def User.digest(token)
     Digest::SHA1.hexdigest(token.to_s)
   end
-
+  
+  def has_subordinates?
+    self.subordinates.any?
+  end
   private
 
     def create_remember_token

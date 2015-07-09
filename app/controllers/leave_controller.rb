@@ -12,7 +12,7 @@ class LeaveController < ApplicationController
      @leave = current_user.leave.build(leave_params)
      @leave.approver_id= current_user.manager_id
     if @leave.save
-      flash[:success] = "Leave Applied!"
+      flash[:success] = "Leave Applied"
       redirect_to root_url
     else
       render 'new'

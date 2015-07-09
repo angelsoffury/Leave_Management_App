@@ -1,7 +1,7 @@
 <div class="span8">
     <%@leave= Leave.where(approver_id: @user.id) %>
     <% if @leave.any? %>
-    <h4>My Employee Leaves (<%= @leave.count %>) </h4>
+    <h4 style="text-decoration:underline;">Approve/Reject Leaves (<%= @leave.count %>) </h4>
      <table>
       <thead>
     <tr>

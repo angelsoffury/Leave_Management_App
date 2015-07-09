@@ -1,33 +1,31 @@
 <div class="span8">
-    <% if @user.manager_id %>
-     <%= link_to "Apply new Leave!", new_user_leave_path(@user),
+  <% if @user.manager_id %>
+    <%= link_to "Apply New Leave", new_user_leave_path(@user),
                                 class: "btn btn-large btn-primary" %><br>
-    <% end %>
-    <% if @user.leave.any? %>
-    <h4>My Leaves (<%= current_user.leave.count %>) </h4>
+  <% end %>
+  <% if @user.leave.any? %>
+    <h4>Leaves (<%= current_user.leave.count %>) </h4>
 
-     <table>
+    <table>
       <thead>
-    <tr>
-      <th>Leave Type &nbsp;</th>
-      <th>Start date &nbsp;</th>
-      <th>End date &nbsp;</th>
-      <th>Status &nbsp;</th>
-    </tr>
-  </thead>
+        <tr>
+          <th>Leave Type &nbsp;</th>
+          <th>Start date &nbsp;</th>
+          <th>End date &nbsp;</th>
+          <th>Status &nbsp;</th>
+        </tr>
+      </thead>
 
-  <tbody>
-    <% @user.leave.each do |leave| %>
-      <tr> 
-        <td><%= link_to leave.leave_type, user_leave_path(@user, leave.id) %> &nbsp;</td>
-        <td><%= leave.start_date %> &nbsp;</td>
-        <td><%= leave.end_date%> &nbsp;</td>
-        <td><%= leave.status %> &nbsp;</td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-    <% end %>
-  </div>
+      <tbody>
+        <% @user.leave.each do |leave| %>
+          <tr> 
+            <td><%= link_to leave.leave_type, user_leave_path(@user, leave.id) %> &nbsp;</td>
+            <td><%= leave.start_date %> &nbsp;</td>
+            <td><%= leave.end_date%> &nbsp;</td>
+            <td><%= leave.status %> &nbsp;</td>
+          </tr>
+        <% end %>
+      </tbody>
+   </table>
+  <% end %>
+</div>

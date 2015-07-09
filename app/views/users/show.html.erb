@@ -5,7 +5,7 @@
       <h1>
         <%= @user.name %>
       </h1>
-      email: <%= @user.email %>
+      Email: <%= @user.email %>
     </section>
   </aside>
   <p>
@@ -15,7 +15,7 @@
       <br>
     <%end %>
     <% if @user.subordinates.any? %>
-      <%= link_to "My employees", users_path(@user) %>
+      <%= link_to "Subordinates", users_path(@user) %>
     <%end %>
   <% end %>
   </p>
