@@ -9,7 +9,7 @@
     </section>
   </aside>
   <p>
-  <% if current_user.id == @user.id %>
+   <% if current_user.try(:id) == @user.id %>
     <% if @user.manager_id %>
       <%= link_to "My manager", @user.manager %>
       <br>
