@@ -1,32 +1,28 @@
-<%= form_for @leave do |f| %>
-  <% if @leave.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@leave.errors.count, "error") %> prohibited
-      this leave from being saved:</h2>
-    <ul>
-    <% @leave.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for @leave do |f| %>
+      <% if @leave.errors.any? %>
+      <div class="alert alert-error">
+        <strong><%= pluralize(@leave.errors.count, "error") %>    prohibited
+          this leave from being saved:</strong>
+        <ul>
+        <% @leave.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+      <% end %>
+          <%= f.label "Leave type"%>
+          <%= f.select :leave_type, ['Paid Leave', 'Casual Leave', 'Earned Leave', 'Other'], prompt: 'Select Type', value: @leave.leave_type%>
+          <%= f.label "Start date (yyyy/mm/dd)"%>
+          <%= f.text_field :start_date, value: @leave.start_date.to_s %>
+          <%= f.label "End date (yyyy/mm/dd)"%><br> 
+          <%= f.text_field :end_date, value: @leave.end_date.to_s %>
+          <%= f.label :reason%><br>
+          <%= f.text_area :reason ,value: @leave.reason%>
+        <div >
+          <%= f.submit "Create Leave" ,class: "btn btn-large btn-primary"%>
+         </div>
     <% end %>
-    </ul>
-  </div>
-  <% end %>
-  <p>
-   <%= f.label "Leave type"%><br>
-  <%= f.select :leave_type, ['Paid Leave', 'Casual Leave', 'Earned Leave', 'Other'], prompt: 'Select Type', value: @leave.leave_type%>
- </p>
- <p>
-   <%= f.label "Start date (yyyy/mm/dd)"%><br>
- <%= f.text_field :start_date, value: @leave.start_date.to_s %>
- </p>
- <p>
-  <%= f.label "End date (yyyy/mm/dd)"%><br> 
- <%= f.text_field :end_date, value: @leave.end_date.to_s %>
- </p>
-  <p>
-    <%= f.label :reason%><br>
-    <%= f.text_area :reason ,value: @leave.reason%>
-  </p>
- <div class= "actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
+</div>

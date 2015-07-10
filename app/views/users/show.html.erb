@@ -1,23 +1,20 @@
-<% provide(:title, @user.name) %>
-<div class="row">
-  <aside class="span4">
-    <section>
-      <h1>
-        <%= @user.name %>
-      </h1>
-      Email: <%= @user.email %>
-    </section>
-  </aside>
-  <p>
-   <% if current_user.try(:id) == @user.id %>
-    <% if @user.manager_id %>
-      <%= link_to "My manager", @user.manager %>
-      <br>
-    <%end %>
-    <% if @user.subordinates.any? %>
-      <%= link_to "Subordinates", users_path(@user) %>
-    <%end %>
-  <% end %>
-  </p>
+<div class="btn">
+  <%= link_to 'Back', root_url %>
 </div>
-<%= link_to 'Back', root_url %>
+
+<% provide(:title, @user.name) %>
+<div class="text-center">
+    <h2><%= @user.name %></h2>
+    Email: <%= @user.email %>
+    <p>
+     <% if current_user.try(:id) == @user.id %>
+      <% if @user.manager_id %>
+        <%= link_to "My manager", @user.manager %>
+        <br>
+      <%end %>
+      <% if @user.subordinates.any? %>
+        <%= link_to "Subordinates", users_path(@user) %>
+      <%end %>
+    <% end %>
+    </p>
+</div>
