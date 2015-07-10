@@ -43,7 +43,7 @@ To apply a leave , first a user has to Sign Up. Then request the admin to assign
  $ rails serevr
  ...
 
-5.Find your application in http://localhost:3000/ (by default)
+ 5. Find your application in http://localhost:3000/ (by default)
 
 
 
