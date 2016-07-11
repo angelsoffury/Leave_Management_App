@@ -1,26 +1,26 @@
-<div class="span8">
+<div>
     <%@leave= Leave.where(approver_id: @user.id) %>
     <% if @leave.any? %>
     <h4 style="text-decoration:underline;">Approve/Reject Leaves (<%= @leave.count %>) </h4>
-     <table>
+     <table class="table table-hover">
       <thead>
     <tr>
-      <th>Employee name &nbsp;</th>
-      <th>Leave Type &nbsp;</th>
-      <th>Start date &nbsp;</th>
-      <th>End date &nbsp;</th>
-      <th>Status &nbsp;</th>
+      <th>Employee name</th>
+      <th>Leave Type</th>
+      <th>Start date </th>
+      <th>End date </th>
+      <th>Status </th>
     </tr>
   </thead>
 
   <tbody>
     <% @leave.each do |leave| %>
-      <tr> 
-        <td><%= link_to User.find(leave.user_id).name , user_path(leave.user_id) %> &nbsp;</td>
+      <tr class="<%= leave_status(leave) %>"> 
+        <td><%= link_to User.find(leave.user_id).name , user_path(leave.user_id) %> </td>
         <td><%= link_to leave.leave_type, user_leave_path(@user, leave.id) %></td>
-        <td><%= leave.start_date %> &nbsp;</td>
-        <td><%= leave.end_date%> &nbsp;</td>
-        <td><%= leave.status %> &nbsp;</td>
+        <td><%= leave.start_date %> </td>
+        <td><%= leave.end_date%> </td>
+        <td><%= leave.status %> </td>
       </tr>
     <% end %>
   </tbody>

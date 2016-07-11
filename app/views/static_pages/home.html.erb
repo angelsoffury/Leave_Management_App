@@ -1,25 +1,21 @@
 <% if signed_in? %>
-  <h2><%= get_dashboard_name %></h2>
-  <div class="row">
-    <aside class="span4">
-      <section>
+  <h1><%= get_dashboard_name %></h1>
+  
         <%= render 'shared/user_info' %>
-    </aside>
-    <section>
+    
           <%= render 'shared/my_leave' %>
-      </section>
-        <section>
+     
         <% if current_user.subordinates.any? %>
           <%= render 'shared/my_employees_leave' %>
         <% end %>
-        </section>
-  </div>
+       
 <% else %>
-<h1>Leave Management App</h1>
-<p>Want to Apply for a leave ?</p>
- <%= link_to "Sign up now!", signup_path,
-                                class: "btn btn-large btn-primary" %><br>
-
-<%= link_to image_tag("cybrilla.jpg", alt: "Cybrilla"), 'http://www.cybrilla.com/' %>
-
+<div class="hero-unit" > 
+<h1>Leave Management App
+</h1><br>
+<p class="text-center", class= "lead">Want to Apply for a leave ? </p>
+ <p class= "text-center"><%= link_to "Sign up now!", signup_path,
+                                class: "btn btn-large btn-primary" %>
+</p>
+</div>
 <%end %>
